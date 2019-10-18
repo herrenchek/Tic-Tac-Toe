@@ -5,8 +5,10 @@ import './index.css';
 class Square extends React.Component {
     render() {
       return (
-        <button className="square">
-          {/* TODO */}
+        // The parameter list for a function with no parameters should be written with a pair of parentheses.
+        <button className="square" onClick={() => alert('click')}>
+          {/* Passing prop from a parent Board to a child Square component. */}
+          {this.props.value}
         </button>
       );
     }
@@ -14,7 +16,8 @@ class Square extends React.Component {
   
   class Board extends React.Component {
     renderSquare(i) {
-      return <Square />;
+      // Value is a prop.
+      return <Square value={i} />;
     }
   
     render() {
