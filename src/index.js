@@ -3,12 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class Square extends React.Component {
+    // All React components that have a constructor should start it with a super(props) call.
+    constructor(props) {
+      super(props);
+      this.state = {
+        value: null,
+      };
+    }
+
     render() {
       return (
         // The parameter list for a function with no parameters should be written with a pair of parentheses.
-        <button className="square" onClick={() => alert('click')}>
+        // A function is being passed as the onClick prop. React will only call this function after a click.
+        <button 
+          className="square"
+          // When you call setState in a component, React automatically updates the child components inside of it too.
+          onClick={() => this.setState({value: 'X'})}
+        >
           {/* Passing prop from a parent Board to a child Square component. */}
-          {this.props.value}
+          {/* The Square component receives the argument as a props object. */}
+          {/* this.props.value */}
+          {this.state.value}
         </button>
       );
     }
