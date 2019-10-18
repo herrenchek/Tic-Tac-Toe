@@ -18,6 +18,7 @@ class Square extends React.Component {
         <button 
           className="square"
           // When you call setState in a component, React automatically updates the child components inside of it too.
+          // The best approach is to store the game’s state in the parent Board component instead of in each Square.
           onClick={() => this.setState({value: 'X'})}
         >
           {/* Passing prop from a parent Board to a child Square component. */}
@@ -30,6 +31,14 @@ class Square extends React.Component {
   }
   
   class Board extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        // An array of 9 nulls corresponding to the 9 squares.
+        squares: Array(9).fill(null),
+      };
+    }
+
     renderSquare(i) {
       // Value is a prop.
       return <Square value={i} />;
