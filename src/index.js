@@ -2,33 +2,41 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Square extends React.Component {
-    // constructor(props) {
-    //   super(props);
-    //   this.state = {
-    //     value: null,
-    //   };
-    // }
+// class Square extends React.Component {
+//     // constructor(props) {
+//     //   super(props);
+//     //   this.state = {
+//     //     value: null,
+//     //   };
+//     // }
 
-    // Square's render method.
-    render() {
-      return (
-        // The parameter list for a function with no parameters should be written with a pair of parentheses.
-        // A function is being passed as the onClick prop. React will only call this function after a click.
-        <button 
-          className="square"
-          // Sets up a click event listener.
-          onClick={() => this.props.onClick()}
-        >
-          {/* Passing prop from a parent Board to a child Square component. */}
-          {/* The Square component receives the argument as a props object. */}
-          {this.props.value}
+//     // Square's render method.
+//     render() {
+//       return (
+//         // The parameter list for a function with no parameters should be written with a pair of parentheses.
+//         // A function is being passed as the onClick prop. React will only call this function after a click.
+//         <button 
+//           className="square"
+//           // Sets up a click event listener.
+//           onClick={() => this.props.onClick()}
+//         >
+//           {/* Passing prop from a parent Board to a child Square component. */}
+//           {/* The Square component receives the argument as a props object. */}
+//           {this.props.value}
 
-          {/* {this.state.value} */}
-        </button>
-      );
-    }
-  }
+//           {/* {this.state.value} */}
+//         </button>
+//       );
+//     }
+//   }
+
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
   
   class Board extends React.Component {
     // All React components that have a constructor should start it with a super(props) call.
